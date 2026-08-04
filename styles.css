@@ -18,12 +18,10 @@
   --color-accent-soft: #e9edde; /* pale sage backgrounds */
 
   --color-gold: #b8965f;        /* warm gold — buttons & dividers on light bg */
-  --color-gold-light: #ddba7c;  /* brighter gold — text on dark bg */
   --color-gold-dark: #96723d;   /* gold hover / pressed state */
   --color-gold-soft: #f5ead4;   /* pale gold tint */
 
-  --color-deep: #2b3a26;        /* deep forest green — hero & footer bands */
-  --color-deep-light: #384a32;  /* lighter green, for gradients */
+  --color-deep: #2b3a26;        /* deep forest green — footer band */
   --color-cream: #f6f1e7;       /* warm off-white text on deep bg */
 
   /* Type */
@@ -206,7 +204,7 @@ ul {
 }
 
 .hero-photo {
-  width: clamp(160px, 24vw, 240px);
+  width: clamp(120px, 16vw, 170px);
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center 20%;
