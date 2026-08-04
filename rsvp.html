@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP — Megan &amp; Daniel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-brand">Megan <span>&amp;</span> Daniel</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="schedule.html">Order of the Day</a></li>
+          <li><a href="venue.html">Venue &amp; Travel</a></li>
+          <li><a href="rsvp.html" aria-current="page">RSVP</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <p class="hero-eyebrow">Kindly Reply By 1st April 2027</p>
+      <h1>RSVP</h1>
+      <hr class="divider">
+    </div>
+
+    <section class="section">
+      <div class="container">
+
+        <!--
+          This is a static site with no backend, so this form does not
+          currently send data anywhere — it just shows a confirmation
+          message (see script.js). To collect real responses, point the
+          form's "action" at a service like Formspree or Netlify Forms,
+          or connect it to a Google Form.
+        -->
+        <form class="rsvp-form" data-rsvp-form>
+
+          <div class="form-group">
+            <label for="name">Full Name(s)</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Jane &amp; John Smith" required>
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Will you be attending?</legend>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="attending" value="yes" checked>
+                  Joyfully accepts
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="attending" value="no">
+                  Regretfully declines
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="0" max="10" placeholder="e.g. 2">
+          </div>
+
+          <div class="form-group">
+            <label for="dietary">Dietary Requirements
+              <span class="hint">Please let us know about any allergies or preferences.</span>
+            </label>
+            <textarea id="dietary" name="dietary" placeholder="e.g. one vegetarian, one gluten-free"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="song">Song Request
+              <span class="hint">A song that will get you on the dance floor.</span>
+            </label>
+            <input type="text" id="song" name="song" placeholder="e.g. Artist — Song Title">
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Send RSVP</button>
+          </div>
+
+          <p class="form-note">Please respond by 1st April 2027.</p>
+        </form>
+
+        <div class="form-success" data-rsvp-success>
+          <h2>Thank You!</h2>
+          <p>Your RSVP has been received. We can't wait to celebrate with you.</p>
+          <p class="form-note">(Placeholder confirmation — connect this form to a real backend to store responses.)</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-names">Megan &amp; Daniel</p>
+      <p>14th August 2027 &middot; Sandon Hall, Staffordshire</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

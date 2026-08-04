@@ -1,0 +1,610 @@
+/* =========================================================
+   Meg's Wedding — shared stylesheet
+   A soft, neutral, country-house palette with a sage accent.
+   ========================================================= */
+
+:root {
+  /* Palette */
+  --color-bg: #faf7f2;          /* warm ivory */
+  --color-bg-alt: #f1ece1;      /* slightly deeper ivory, for panels */
+  --color-surface: #ffffff;     /* cards */
+  --color-text: #2f2b26;        /* warm near-black */
+  --color-text-muted: #6e665b;  /* softer body text */
+  --color-border: #e3dbcb;      /* hairline borders */
+  --color-accent: #74815c;      /* sage green */
+  --color-accent-dark: #5a6548; /* pressed / hover state */
+  --color-accent-soft: #e9edde; /* pale sage backgrounds */
+  --color-gold: #b8965f;        /* warm gold, used sparingly */
+
+  /* Type */
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  /* Layout */
+  --max-width: 960px;
+  --radius: 4px;
+  --shadow-soft: 0 4px 20px rgba(47, 43, 38, 0.06);
+}
+
+/* ---------- Reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-accent-dark);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  color: var(--color-text);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.site-brand {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.site-brand span {
+  color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.main-nav a {
+  display: inline-block;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: var(--color-accent-dark);
+  background-color: var(--color-accent-soft);
+}
+
+.main-nav a[aria-current="page"] {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+  }
+
+  .main-nav.is-open {
+    display: block;
+  }
+
+  .site-header .container {
+    flex-wrap: wrap;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 2px;
+    padding-bottom: 16px;
+  }
+
+  .main-nav a {
+    padding: 12px 14px;
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 96px 24px 80px;
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin-bottom: 0.3em;
+}
+
+.hero .hero-date {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5em;
+}
+
+.hero .hero-welcome {
+  max-width: 560px;
+  margin: 0 auto 2.2em;
+  color: var(--color-text-muted);
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin: 24px auto;
+  border: none;
+}
+
+/* ---------- Countdown ---------- */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 auto 2em;
+}
+
+.countdown .countdown-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  min-width: 84px;
+  box-shadow: var(--shadow-soft);
+}
+
+.countdown .countdown-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-accent-dark);
+  line-height: 1;
+}
+
+.countdown .countdown-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--color-accent);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-accent-dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent-soft);
+}
+
+/* ---------- Page sections ---------- */
+.page-header {
+  text-align: center;
+  padding: 64px 24px 32px;
+}
+
+.page-header .hero-eyebrow {
+  margin-bottom: 12px;
+}
+
+.section {
+  padding: 56px 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--color-border);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Timeline (Schedule page) ---------- */
+.timeline {
+  list-style: none;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -39px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  border: 3px solid var(--color-accent);
+}
+
+.timeline-time {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-accent-dark);
+  margin-bottom: 4px;
+}
+
+.timeline-title {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+}
+
+.timeline-desc {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Cards (venue, hotels, taxis) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.card p {
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card .card-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-dark);
+  background-color: var(--color-accent-soft);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+/* ---------- Map placeholder ---------- */
+.map-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 24px;
+  overflow: hidden;
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.address-block {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.address-block address {
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Note / callout ---------- */
+.note {
+  background-color: var(--color-accent-soft);
+  border-left: 3px solid var(--color-accent);
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  color: var(--color-text);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.note p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Forms (RSVP page) ---------- */
+.rsvp-form {
+  max-width: 560px;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: var(--shadow-soft);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.form-group label,
+.form-group legend {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group legend {
+  padding: 0;
+}
+
+.form-group .hint {
+  display: block;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.radio-option input {
+  width: auto;
+}
+
+.form-submit {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.form-submit .btn {
+  width: 100%;
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 16px;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  box-shadow: var(--shadow-soft);
+}
+
+.form-success.is-visible {
+  display: block;
+}
+
+.rsvp-form.is-hidden {
+  display: none;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer .footer-names {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+/* ---------- Utility ---------- */
+.text-center {
+  text-align: center;
+}
