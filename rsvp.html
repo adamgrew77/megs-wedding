@@ -32,7 +32,6 @@
 
   <main>
     <div class="page-header">
-      <p class="hero-eyebrow">Kindly Reply By 1st April 2027</p>
       <h1>RSVP</h1>
       <hr class="divider">
     </div>
@@ -41,13 +40,11 @@
       <div class="container">
 
         <!--
-          This is a static site with no backend, so this form does not
-          currently send data anywhere — it just shows a confirmation
-          message (see script.js). To collect real responses, point the
-          form's "action" at a service like Formspree or Netlify Forms,
-          or connect it to a Google Form.
+          Submissions are sent via Formspree (form ID xgawzepa, registered
+          to adam.grew@btinternet.com) to that inbox — script.js POSTs this
+          form to the endpoint below with fetch.
         -->
-        <form class="rsvp-form" data-rsvp-form>
+        <form class="rsvp-form" data-rsvp-form action="https://formspree.io/f/xgawzepa" method="POST">
 
           <div class="form-group">
             <label for="name">Full Name(s)</label>
@@ -92,14 +89,13 @@
           <div class="form-submit">
             <button type="submit" class="btn btn-primary">Send RSVP</button>
           </div>
-
-          <p class="form-note">Please respond by 1st April 2027.</p>
         </form>
+
+        <p class="form-note form-error" data-rsvp-error>Sorry, something went wrong sending your RSVP. Please try again or email us directly.</p>
 
         <div class="form-success" data-rsvp-success>
           <h2>Thank You!</h2>
           <p>Your RSVP has been received. We can't wait to celebrate with you.</p>
-          <p class="form-note">(Placeholder confirmation — connect this form to a real backend to store responses.)</p>
         </div>
 
       </div>

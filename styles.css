@@ -621,6 +621,15 @@ fieldset {
   display: block;
 }
 
+.form-error {
+  display: none;
+  color: #b3392c;
+}
+
+.form-error.is-visible {
+  display: block;
+}
+
 .rsvp-form.is-hidden {
   display: none;
 }

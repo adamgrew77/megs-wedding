@@ -69,8 +69,12 @@ PNG in its own isolated step, verify visually, and if the source is portrait,
 - Google Maps embed on `venue.html` — placeholder div with instructions
   commented in the HTML for where to paste a real embed `<iframe>`
 - Hotels (3) and taxi firms (2) on `venue.html` — placeholder names/numbers
-- RSVP form has **no backend** — submitting just shows a client-side "Thank
-  You" message (see comment in `script.js`/`rsvp.html`); needs to be pointed at
-  a service like Formspree or Google Forms to actually collect responses
+- RSVP form now POSTs to Formspree (`https://formspree.io/f/xgawzepa`, see
+  `rsvp.html`/`script.js`), which forwards submissions by email to
+  adam.grew@btinternet.com. There is a real Formspree account behind this
+  form ID (registered to adam.grew@btinternet.com) — Formspree's older
+  no-signup "email in the URL" trick no longer works, an account + form ID
+  is required. Free tier caps submissions per month; check the Formspree
+  dashboard if RSVPs stop arriving.
 - A second Sandon Hall photo (conservatory/orangery) was found but not yet used
   anywhere — available at the original source if wanted

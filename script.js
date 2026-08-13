@@ -68,24 +68,46 @@ function initCountdown() {
 }
 
 // ---------- RSVP form ----------
-// This is a static site with no backend, so the form currently just
-// shows a confirmation message on submit. To collect real responses,
-// wire the <form> up to a service such as Formspree, Netlify Forms,
-// or Google Forms, and remove/adjust the preventDefault below.
+// Submits to Formspree (see the form's "action" attribute in rsvp.html),
+// which emails the response straight to adam.grew@btinternet.com. Uses
+// fetch + Accept: application/json so Formspree returns JSON instead of
+// redirecting, letting us show the inline "Thank You" message below.
 function initRsvpForm() {
   var form = document.querySelector("[data-rsvp-form]");
   if (!form) return;
 
   var successMessage = document.querySelector("[data-rsvp-success]");
+  var errorMessage = document.querySelector("[data-rsvp-error]");
+  var submitButton = form.querySelector("button[type=submit]");
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    form.classList.add("is-hidden");
-    if (successMessage) {
-      successMessage.classList.add("is-visible");
-      successMessage.setAttribute("tabindex", "-1");
-      successMessage.focus();
-    }
+    if (errorMessage) errorMessage.classList.remove("is-visible");
+    if (submitButton) submitButton.disabled = true;
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error("Form submission failed");
+
+        form.classList.add("is-hidden");
+        if (successMessage) {
+          successMessage.classList.add("is-visible");
+          successMessage.setAttribute("tabindex", "-1");
+          successMessage.focus();
+        }
+      })
+      .catch(function () {
+        if (submitButton) submitButton.disabled = false;
+        if (errorMessage) {
+          errorMessage.classList.add("is-visible");
+        } else {
+          alert("Sorry, something went wrong sending your RSVP. Please try again or email us directly.");
+        }
+      });
   });
 }
