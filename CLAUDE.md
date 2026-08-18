@@ -66,8 +66,10 @@ PNG in its own isolated step, verify visually, and if the source is portrait,
   first names ("Megan & Daniel") are shown on the site so far
 - "About Sandon Hall" copy on `venue.html` — a real Sandon Hall photo is in
   place (`assets/sandon-hall.jpg`) but the description text is still placeholder
-- Google Maps embed on `venue.html` — placeholder div with instructions
-  commented in the HTML for where to paste a real embed `<iframe>`
+- Google Maps on `venue.html` is now real: an `output=embed` iframe (no API
+  key needed) plus a "Get Directions" button linking to
+  `google.com/maps/dir/?api=1&destination=...`, which opens the guest's own
+  Maps app with turn-by-turn directions from their current location
 - Hotels (3) and taxi firms (2) on `venue.html` — placeholder names/numbers
 - RSVP form now POSTs to Formspree (`https://formspree.io/f/xgawzepa`, see
   `rsvp.html`/`script.js`), which forwards submissions by email to

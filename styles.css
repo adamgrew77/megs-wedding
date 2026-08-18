@@ -1,37 +1,39 @@
 /* =========================================================
-   Meg's Wedding — shared stylesheet
-   A country-house palette: ivory & charcoal, bookended by a
-   deep forest-green + gold band (hero/footer), sage as a
-   secondary accent — inspired by sandonhall.co.uk.
+   Megan & Daniel's Wedding — shared stylesheet
+   Palette drawn from three real sources: Sandon Hall's stone
+   facade (stone-gold), its parkland (parkland green), and the
+   dress Meg wore the evening they got engaged (blush — used
+   sparingly, as a signature rather than a base colour).
    ========================================================= */
 
 :root {
   /* Palette */
-  --color-bg: #faf7f2;          /* warm ivory */
-  --color-bg-alt: #f1ece1;      /* slightly deeper ivory, for panels */
-  --color-surface: #ffffff;     /* cards */
-  --color-text: #2f2b26;        /* warm near-black */
-  --color-text-muted: #6e665b;  /* softer body text */
-  --color-border: #e3dbcb;      /* hairline borders */
-  --color-accent: #74815c;      /* sage green (secondary accent) */
-  --color-accent-dark: #5a6548; /* pressed / hover state */
-  --color-accent-soft: #e9edde; /* pale sage backgrounds */
+  --color-bg: #f7f2e6;          /* parchment */
+  --color-bg-alt: #efe6d2;      /* deeper parchment, for panels */
+  --color-surface: #fffdf8;     /* cards */
+  --color-text: #2b2620;        /* ink */
+  --color-text-muted: #6b6255;  /* softer ink */
+  --color-border: #ddcfae;      /* hairline, stone-tinted */
 
-  --color-gold: #b8965f;        /* warm gold — buttons & dividers on light bg */
-  --color-gold-dark: #96723d;   /* gold hover / pressed state */
-  --color-gold-soft: #f5ead4;   /* pale gold tint */
+  --color-parkland: #3f5a3d;      /* parkland green (secondary accent) */
+  --color-parkland-dark: #263a26; /* pressed / hover state, footer band */
+  --color-parkland-soft: #e7ebe0; /* pale green backgrounds */
 
-  --color-deep: #2b3a26;        /* deep forest green — footer band */
-  --color-cream: #f6f1e7;       /* warm off-white text on deep bg */
+  --color-stone: #a3865a;        /* stone-gold — buttons & dividers */
+  --color-stone-dark: #82683f;   /* stone hover / pressed state */
+  --color-stone-soft: #efe3c8;   /* pale stone tint */
+
+  --color-blush: #bd7c85;       /* signature accent — used once or twice */
+  --color-cream: #f5f0e1;       /* warm off-white text on deep bg */
 
   /* Type */
-  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-body: "Jost", "Helvetica Neue", Arial, sans-serif;
 
   /* Layout */
   --max-width: 960px;
-  --radius: 4px;
-  --shadow-soft: 0 4px 20px rgba(47, 43, 38, 0.06);
+  --radius: 2px;
+  --shadow-soft: 0 6px 22px rgba(43, 38, 32, 0.08);
 }
 
 /* ---------- Reset ---------- */
@@ -59,13 +61,14 @@ img {
 }
 
 a {
-  color: var(--color-gold-dark);
+  color: var(--color-stone-dark);
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
   margin: 0 0 0.5em;
   color: var(--color-text);
 }
@@ -105,14 +108,15 @@ ul {
 
 .site-brand {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 1.45rem;
+  font-weight: 600;
   letter-spacing: 0.03em;
   text-decoration: none;
   color: var(--color-text);
 }
 
 .site-brand span {
-  color: var(--color-gold-dark);
+  color: var(--color-stone-dark);
 }
 
 .nav-toggle {
@@ -155,12 +159,12 @@ ul {
 }
 
 .main-nav a:hover {
-  color: var(--color-accent-dark);
-  background-color: var(--color-accent-soft);
+  color: var(--color-parkland-dark);
+  background-color: var(--color-parkland-soft);
 }
 
 .main-nav a[aria-current="page"] {
-  color: var(--color-gold-dark);
+  color: var(--color-stone-dark);
   font-weight: 600;
 }
 
@@ -198,34 +202,43 @@ ul {
   text-align: center;
   padding: 72px 24px 80px;
   background:
-    radial-gradient(120% 140% at 50% -10%, rgba(221, 186, 124, 0.18) 0%, rgba(221, 186, 124, 0) 55%),
-    linear-gradient(180deg, var(--color-bg) 0%, var(--color-accent-soft) 100%);
-  border-bottom: 2px solid var(--color-gold);
+    radial-gradient(120% 140% at 50% -10%, rgba(163, 134, 90, 0.16) 0%, rgba(163, 134, 90, 0) 55%),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-parkland-soft) 100%);
+  border-bottom: 2px solid var(--color-stone);
 }
 
 .hero-photo {
-  width: clamp(120px, 16vw, 170px);
+  width: clamp(180px, 26vw, 280px);
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center 20%;
   border-radius: var(--radius);
-  border: 3px solid var(--color-gold);
+  border: 1px solid var(--color-stone);
+  outline: 1px solid var(--color-stone);
+  outline-offset: 4px;
   box-shadow: var(--shadow-soft);
-  margin: 0 auto 28px;
+  margin: 0 auto 32px;
 }
 
 .hero-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.8rem;
-  color: var(--color-gold-dark);
+  color: var(--color-stone-dark);
   margin-bottom: 18px;
 }
 
 .hero h1 {
-  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-size: clamp(2.8rem, 7.5vw, 4.8rem);
   margin-bottom: 0.3em;
   color: var(--color-text);
+}
+
+.hero h1 .amp {
+  color: var(--color-blush);
+  font-style: italic;
+  font-weight: 500;
+  padding: 0 0.06em;
 }
 
 .hero .hero-date {
@@ -243,9 +256,26 @@ ul {
 .divider {
   width: 60px;
   height: 2px;
-  background-color: var(--color-gold);
+  background-color: var(--color-stone);
   margin: 24px auto;
   border: none;
+}
+
+/* ---------- Hall skyline motif ---------- */
+/* A line drawing of Sandon Hall's own roofline — gate piers, twin
+   turrets, the central pediment and clock — standing in for a
+   generic divider on every page. */
+.hall-skyline {
+  max-width: 460px;
+  margin: 20px auto 28px;
+  padding: 0 24px;
+  color: var(--color-stone);
+}
+
+.hall-skyline svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ---------- Countdown ---------- */
@@ -270,7 +300,7 @@ ul {
   display: block;
   font-family: var(--font-heading);
   font-size: 2rem;
-  color: var(--color-gold-dark);
+  color: var(--color-stone-dark);
   line-height: 1;
 }
 
@@ -292,31 +322,31 @@ ul {
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.03em;
-  border: 1px solid var(--color-gold);
+  border: 1px solid var(--color-stone);
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   cursor: pointer;
   font-family: var(--font-body);
 }
 
 .btn-primary {
-  background-color: var(--color-gold);
-  color: var(--color-deep);
+  background-color: var(--color-stone);
+  color: var(--color-parkland-dark);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-gold-dark);
-  border-color: var(--color-gold-dark);
+  background-color: var(--color-stone-dark);
+  border-color: var(--color-stone-dark);
   color: var(--color-cream);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--color-gold-dark);
+  color: var(--color-stone-dark);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-gold-soft);
+  background-color: var(--color-stone-soft);
 }
 
 /* ---------- Page sections ---------- */
@@ -326,7 +356,7 @@ ul {
 }
 
 .page-header .hero-eyebrow {
-  color: var(--color-gold-dark);
+  color: var(--color-stone-dark);
   margin-bottom: 12px;
 }
 
@@ -372,20 +402,20 @@ ul {
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: -39px;
-  top: 4px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
+  left: -40px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
   background-color: var(--color-bg);
-  border: 3px solid var(--color-gold);
+  border: 2.5px solid var(--color-stone);
+  transform: rotate(45deg);
 }
 
 .timeline-time {
   display: block;
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  color: var(--color-gold-dark);
+  color: var(--color-stone-dark);
   margin-bottom: 4px;
 }
 
@@ -434,8 +464,8 @@ ul {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-accent-dark);
-  background-color: var(--color-accent-soft);
+  color: var(--color-parkland-dark);
+  background-color: var(--color-parkland-soft);
   padding: 3px 10px;
   border-radius: 20px;
   margin-bottom: 10px;
@@ -448,24 +478,20 @@ ul {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: var(--radius);
-  border: 3px solid var(--color-gold);
+  border: 1px solid var(--color-stone);
+  outline: 1px solid var(--color-stone);
+  outline-offset: 6px;
   box-shadow: var(--shadow-soft);
-  margin: 0 auto 32px;
+  margin: 0 auto 40px;
 }
 
-/* ---------- Map placeholder ---------- */
+/* ---------- Map ---------- */
 .map-embed {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: 1px dashed var(--color-border);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--color-text-muted);
-  padding: 24px;
   overflow: hidden;
 }
 
@@ -473,6 +499,12 @@ ul {
   width: 100%;
   height: 100%;
   border: 0;
+  display: block;
+}
+
+.map-actions {
+  text-align: center;
+  margin: 24px 0 0;
 }
 
 .address-block {
@@ -487,8 +519,8 @@ ul {
 
 /* ---------- Note / callout ---------- */
 .note {
-  background-color: var(--color-accent-soft);
-  border-left: 3px solid var(--color-accent);
+  background-color: var(--color-parkland-soft);
+  border-left: 3px solid var(--color-parkland);
   padding: 16px 20px;
   border-radius: var(--radius);
   color: var(--color-text);
@@ -558,8 +590,8 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px var(--color-gold-soft);
+  border-color: var(--color-stone);
+  box-shadow: 0 0 0 3px var(--color-stone-soft);
 }
 
 textarea {
@@ -621,6 +653,10 @@ fieldset {
   display: block;
 }
 
+.form-success h2 {
+  color: var(--color-blush);
+}
+
 .form-error {
   display: none;
   color: #b3392c;
@@ -640,8 +676,8 @@ fieldset {
   padding: 48px 24px;
   color: rgba(246, 241, 231, 0.75);
   font-size: 0.9rem;
-  background-color: var(--color-deep);
-  border-top: 3px solid var(--color-gold);
+  background-color: var(--color-parkland-dark);
+  border-top: 3px solid var(--color-stone);
 }
 
 .site-footer .footer-names {
