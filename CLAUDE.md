@@ -8,7 +8,7 @@ directly in a browser to preview.
 
 - `index.html` — Home: hero with framed couple photo, countdown, welcome text
 - `schedule.html` — Order of the day (timeline: ceremony → carriages)
-- `venue.html` — About Sandon Hall, address, map placeholder, hotels, taxis, parking
+- `venue.html` — About Sandon Hall, address, live map + directions, hotels, taxis, parking
 - `rsvp.html` — RSVP form (name, attending, guests, dietary, song)
 - `styles.css` — shared stylesheet (single file, CSS custom properties for palette)
 - `script.js` — mobile nav toggle, countdown timer, RSVP form submit handling
@@ -64,8 +64,6 @@ PNG in its own isolated step, verify visually, and if the source is portrait,
 
 - Couple's full legal names (Megan Jane Grew, Daniel Fred Williams) — only
   first names ("Megan & Daniel") are shown on the site so far
-- "About Sandon Hall" copy on `venue.html` — a real Sandon Hall photo is in
-  place (`assets/sandon-hall.jpg`) but the description text is still placeholder
 - Google Maps on `venue.html` is now real: an `output=embed` iframe (no API
   key needed) plus a "Get Directions" button linking to
   `google.com/maps/dir/?api=1&destination=...`, which opens the guest's own
