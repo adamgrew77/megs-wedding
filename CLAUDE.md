@@ -62,13 +62,19 @@ PNG in its own isolated step, verify visually, and if the source is portrait,
 
 ## Still placeholder / not yet real
 
-- Couple's full legal names (Megan Jane Grew, Daniel Fred Williams) — only
-  first names ("Megan & Daniel") are shown on the site so far
+- Couple's full names are Megan Grew and Daniel Williams — only first names
+  ("Megan & Daniel") are shown on the site so far; not yet decided where (if
+  anywhere) full names should appear on-page
 - Google Maps on `venue.html` is now real: an `output=embed` iframe (no API
   key needed) plus a "Get Directions" button linking to
   `google.com/maps/dir/?api=1&destination=...`, which opens the guest's own
   Maps app with turn-by-turn directions from their current location
-- Hotels (3) and taxi firms (2) on `venue.html` — placeholder names/numbers
+- Hotels (3) and taxi firms (3) on `venue.html` are now real: hotels are
+  Dog & Doublet Inn in Sandon, Premier Inn Stafford North, and Travelodge
+  Stafford Central; taxis are Stafford Taxis, Stafford Cabs, and Stone Taxis
+  (Stone is the other nearby town). Both sections end with a "see more
+  options nearby" link to a Google Maps search, for anyone who wants more
+  choices than the curated ones
 - RSVP form now POSTs to Formspree (`https://formspree.io/f/xgawzepa`, see
   `rsvp.html`/`script.js`), which forwards submissions by email to
   adam.grew@btinternet.com. There is a real Formspree account behind this
